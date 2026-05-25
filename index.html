@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Weavelog - 継続する人をサポートする日記型ソーシャルアプリ">
+<title>Weavelog - 継続する人をつなぐ日記アプリ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.7;
+    color: #333;
+    background: #f8f9fb;
+  }
+  .hero {
+    background: linear-gradient(135deg, #4a90e2 0%, #7b68ee 100%);
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px 60px;
+  }
+  .hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 16px; letter-spacing: -1px; }
+  .hero .tagline { font-size: 18px; opacity: 0.95; max-width: 600px; margin: 0 auto; }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px;
+  }
+  section { margin-bottom: 48px; }
+  h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #4a90e2;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .feature {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .feature h3 { font-size: 16px; color: #4a90e2; margin-bottom: 8px; }
+  .feature p { font-size: 14px; color: #555; }
+  .contact {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .contact a {
+    color: #4a90e2;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .contact a:hover { text-decoration: underline; }
+  .links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  .links a {
+    color: #4a90e2;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #4a90e2;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .links a:hover { background: #4a90e2; color: #fff; }
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: #999;
+    font-size: 13px;
+    border-top: 1px solid #e1e4e8;
+    background: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Weavelog</h1>
+  <p class="tagline">「続けたい」をみんなで応援する日記型ソーシャルアプリ</p>
+</div>
+
+<main>
+
+  <section>
+    <h2>Weavelog について</h2>
+    <p>
+      Weavelog は、毎日のがんばりを記録しながら仲間から応援をもらえる、新感覚の継続サポートアプリです。
+      一人では続かないことも、仲間と一緒なら続けられる ー そんな思いから生まれた、日記とソーシャルが融合したサービスです。
+    </p>
+  </section>
+
+  <section>
+    <h2>主な機能</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>📝 日記投稿</h3>
+        <p>テキスト・画像・ハッシュタグでサッと記録。お気に入りのテンプレートで投稿もラクラク。</p>
+      </div>
+      <div class="feature">
+        <h3>🔥 継続バッジ</h3>
+        <p>連続投稿日数（ストリーク）や達成バッジで、自分の頑張りを可視化。</p>
+      </div>
+      <div class="feature">
+        <h3>👥 フォロー機能</h3>
+        <p>気になるユーザーをフォローして、お互いに応援し合える環境を。</p>
+      </div>
+      <div class="feature">
+        <h3>💪 応援リアクション</h3>
+        <p>「がんばれ！」のリアクションで、仲間の継続を後押し。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>お問い合わせ</h2>
+    <div class="contact">
+      <p>
+        ご質問・ご要望・不具合報告は、以下のメールアドレスまでお寄せください。<br>
+        通常、数営業日以内にお返事いたします。
+      </p>
+      <p style="margin-top: 16px;">
+        <strong>📧 サポートメール:</strong>
+        <a href="mailto:codemica.app@gmail.com">codemica.app@gmail.com</a>
+      </p>
+      <p style="margin-top: 12px; font-size: 14px; color: #666;">
+        アプリ内の「設定」→「サポート」→「お問い合わせ」からもご連絡いただけます。
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>関連リンク</h2>
+    <div class="links">
+      <a href="./terms_of_service.html">利用規約</a>
+      <a href="./PrivacyPolicy.html">プライバシーポリシー</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Codemica. All rights reserved.
+</footer>
+
+</body>
+</html>
