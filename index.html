@@ -211,6 +211,31 @@
     color:#4a423a;font-size:13.5px;line-height:2;
   }
 
+  /* ============ SECTION DIVIDER ============ */
+  .section-divider{
+    display:flex;align-items:center;justify-content:center;
+    gap:18px;
+    max-width:380px;
+    margin:0 auto 50px;
+    opacity:.9;
+    padding:0 24px;
+  }
+  .section-divider .line{
+    flex:1;height:1px;
+    background:linear-gradient(90deg, transparent, rgba(31,107,110,.45), transparent);
+  }
+  .section-divider .sprout{
+    width:30px;height:30px;
+    object-fit:contain;
+    flex-shrink:0;
+    opacity:.85;
+  }
+  .section-divider .dot{
+    width:4px;height:4px;border-radius:50%;
+    background:rgba(31,107,110,.4);
+    flex-shrink:0;
+  }
+
   /* ============ PHONES ============ */
   .phones{
     background:#fcfaf5;
@@ -433,6 +458,11 @@
 
 <!-- ===================== PHONES ===================== -->
 <section class="phones" data-screen-label="04 Screens">
+  <div class="section-divider" aria-hidden="true">
+    <span class="line"></span>
+    <img src="assets/images/uploads/img2_r2c1_sprout_icon.png" alt="" class="sprout">
+    <span class="line"></span>
+  </div>
   <h2>シンプルで使いやすい、毎日の習慣に</h2>
   <div class="phones-row">
     <div class="phone-card">
@@ -452,6 +482,11 @@
 
 <!-- ===================== WARMTH ===================== -->
 <section class="warmth" data-screen-label="05 Warmth">
+  <div class="section-divider" aria-hidden="true">
+    <span class="line"></span>
+    <img src="assets/images/uploads/img2_r2c1_sprout_icon.png" alt="" class="sprout">
+    <span class="line"></span>
+  </div>
   <h2>他にはない、温かい応援文化</h2>
   <div class="stamps-row">
     <img class="stamp" src="assets/images/stamp-otukaresama.png" alt="おつかれさま" />
