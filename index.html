@@ -336,6 +336,14 @@
     white-space:nowrap;
   }
   .footer-links a:hover{color:var(--teal-deep)}
+  .footer-links .social-link{
+    display:inline-flex;align-items:center;
+    padding:2px;
+    color:inherit;
+    transition:color .15s ease, transform .15s ease;
+  }
+  .footer-links .social-link:hover{color:var(--teal-deep);transform:translateY(-1px);}
+  .footer-links .social-link svg{display:block;}
   .footer-copy{
     font-size:12px;color:#7a7268;letter-spacing:.04em;
     text-align:right;
@@ -522,6 +530,13 @@
       <a href="/terms_of_service.html">利用規約</a>
       <span style="color:#d8cfba">|</span>
       <a href="mailto:codemica.app@gmail.com">お問い合わせ</a>
+      <span style="color:#d8cfba">|</span>
+      <a href="https://x.com/codemica_app" target="_blank" rel="noopener" aria-label="X (@codemica_app)" class="social-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 3H21l-6.51 7.443L22 21h-6.78l-4.79-6.27L4.8 21H2l7.04-8.05L2 3h6.94l4.34 5.74L18.244 3zm-2.38 16h1.83L7.27 5H5.32l10.544 14z"/></svg>
+      </a>
+      <a href="https://note.com/codemica_app" target="_blank" rel="noopener" aria-label="note (@codemica_app)" class="social-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg>
+      </a>
     </div>
     <div class="footer-copy">© 2026 Codemica</div>
 
