@@ -126,12 +126,13 @@
   /* hero right */
   .hero-right{
     position:relative;
-    display:flex;justify-content:center;align-items:flex-start;
+    display:flex;justify-content:flex-end;align-items:flex-start;  /* center → flex-end で右寄せ */
     z-index:4;
+    padding-right:20px;
   }
   .phone-hero{
     position:relative;z-index:4;
-    width:380px;
+    width:340px;  /* 380 → 340 で少し小さく */
     max-width:100%;
     filter:drop-shadow(0 30px 40px rgba(60,40,20,.18));
   }
@@ -140,14 +141,14 @@
   .deco{position:absolute;pointer-events:none;z-index:1}
 
   .deco-leaf-top      { top:30px;  left:52%;  width:140px; transform:rotate(-12deg); opacity:.95; z-index:2;}
-  .deco-leaf-right    { top:46%;   right:7%;  width:130px; transform:rotate(20deg);  opacity:.9;  z-index:2;}
-  .deco-leaf-bottom   { bottom:14%;right:13%; width:120px; transform:rotate(-22deg); opacity:.85; z-index:2;}
+  .deco-leaf-right    { top:46%;   right:1%;  width:130px; transform:rotate(20deg);  opacity:.9;  z-index:2;}
+  .deco-leaf-bottom   { bottom:14%;right:4%;  width:120px; transform:rotate(-22deg); opacity:.85; z-index:2;}  /* right 13% → 4% で少しだけ右へ */
   .deco-circle-teal   { top:40%;   left:52%;  width:170px; opacity:.65; z-index:1;}
   .deco-blob-orange-1 { top:65%;   left:42%;  width:200px; opacity:.85; z-index:1;}
   .deco-blob-orange-2 { top:14%;   right:-2%; width:260px; opacity:.7;  z-index:1;}
   .deco-orange-dots   { top:50%;   left:36%;  width:130px; opacity:.95; z-index:3;}
   .deco-teal-dots     { bottom:24%;right:2%;  width:130px; opacity:.85; z-index:3;}
-  .deco-sparkles      { top:42%;   right:3%;  width:110px; opacity:.95; z-index:3;}
+  .deco-sparkles      { top:38%;   right:8%;  width:110px; opacity:.95; z-index:3;}  /* 葉と被るので左上にずらし */
 
   /* notebook + coffee anchored to bottom-left of hero, beneath the text content */
   .deco-coffee   { bottom:90px; left:330px; width:160px; z-index:5;}  /* 拡大 + 右にずらし */
@@ -357,7 +358,7 @@
         仲間と一緒なら続けられる
       </p>
 
-      <a class="appstore" href="#" aria-label="Download on the App Store">
+      <a class="appstore" href="https://apps.apple.com/jp/app/weavelog/id6753839590" target="_blank" rel="noopener" aria-label="Download on the App Store">
         <img src="assets/images/uploads/img2_r1c1_appstore_badge.png" alt="Download on the App Store" />
       </a>
 
@@ -368,7 +369,7 @@
 
     <!-- RIGHT -->
     <div class="hero-right">
-      <img class="phone-hero" src="assets/images/uploads/composite_phone_post_white.png" alt="Weavelogホーム画面" data-comment-anchor="84a07f9bab-img" />
+      <img class="phone-hero" src="assets/images/phone-timeline.png" alt="Weavelog のタイムライン画面" />
     </div>
   </div>
 
@@ -435,15 +436,15 @@
   <h2>シンプルで使いやすい、毎日の習慣に</h2>
   <div class="phones-row">
     <div class="phone-card">
-      <div class="phone-wrap"><img class="phone" src="assets/images/uploads/tight_phone_post_white.png" alt="ホーム画面" data-comment-anchor="6b685a21e2-img" /></div>
+      <div class="phone-wrap"><img class="phone" src="assets/images/phone-post.png" alt="新規投稿画面" /></div>
       <div class="caption">投稿しやすいホーム</div>
     </div>
     <div class="phone-card">
-      <div class="phone-wrap"><img class="phone" src="assets/images/uploads/tight_phone_streak.png" alt="ストリーク画面" /></div>
+      <div class="phone-wrap"><img class="phone" src="assets/images/phone-mydata.png" alt="マイデータ画面" /></div>
       <div class="caption">続けた日数が見える</div>
     </div>
     <div class="phone-card">
-      <div class="phone-wrap"><img class="phone" src="assets/images/uploads/tight_phone_community.png" alt="コミュニティ画面" /></div>
+      <div class="phone-wrap"><img class="phone" src="assets/images/phone-ouen.png" alt="応援が届くコミュニティ画面" /></div>
       <div class="caption">応援が届くコミュニティ</div>
     </div>
   </div>
@@ -466,7 +467,7 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer" data-screen-label="06 Footer">
   <div class="download-block">
-    <a class="appstore" href="#" aria-label="Download on the App Store">
+    <a class="appstore" href="https://apps.apple.com/jp/app/weavelog/id6753839590" target="_blank" rel="noopener" aria-label="Download on the App Store">
       <img src="assets/images/uploads/img2_r1c1_appstore_badge.png" alt="Download on the App Store" />
     </a>
     <div class="free-dl">無料でダウンロード</div>
