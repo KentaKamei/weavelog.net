@@ -1,159 +1,495 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Weavelog - 継続する人をサポートする日記型ソーシャルアプリ">
-<title>Weavelog - 継続する人をつなぐ日記アプリ</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Weavelog — 『続けたい』をみんなで応援する日記SNS</title>
+
+<meta name="description" content="Weavelog は、日々の記録を気軽に続けられる日記 SNS です。投稿・応援・ストリークを通して、ひとりでは続かない習慣を自然に支えます。勉強、筋トレ、創作、日常の記録まで、自分のペースで続けられます。" />
+<meta name="author" content="Codemica" />
+<meta name="theme-color" content="#f6ecd5" />
+
+<meta property="og:title" content="Weavelog — 『続けたい』をみんなで応援する日記SNS" />
+<meta property="og:description" content="一人では続かないことも、仲間と一緒なら続けられる。Weavelog は日々の記録を気軽に続けられる日記 SNS です。" />
+<meta property="og:url" content="https://weavelog.net/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Weavelog" />
+<meta property="og:image" content="https://weavelog.net/assets/images/weavelog-icon.png" />
+<meta property="og:locale" content="ja_JP" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@codemica_app" />
+<meta name="twitter:title" content="Weavelog — 『続けたい』をみんなで応援する日記SNS" />
+<meta name="twitter:description" content="一人では続かないことも、仲間と一緒なら続けられる。Weavelog は日々の記録を気軽に続けられる日記 SNS です。" />
+<meta name="twitter:image" content="https://weavelog.net/assets/images/weavelog-icon.png" />
+
+<link rel="icon" type="image/png" href="/assets/images/weavelog-icon.png" />
+<link rel="apple-touch-icon" href="/assets/images/weavelog-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-    line-height: 1.7;
-    color: #333;
-    background: #f8f9fb;
+  :root{
+    --ink:#2a2520;
+    --ink-soft:#4a423a;
+    --ink-muted:#7a7268;
+    --teal:#1f6b6e;
+    --teal-deep:#0f5a5e;
+    --orange:#e8794a;
+    --orange-soft:#f3a07a;
+    --paper:#f5ecd8;
+    --paper-soft:#f7f0de;
+    --cream:#fbf6ea;
+    --white-soft:#fcfaf5;
   }
-  .hero {
-    background: linear-gradient(135deg, #4a90e2 0%, #7b68ee 100%);
-    color: #fff;
-    text-align: center;
-    padding: 80px 20px 60px;
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#fcfaf5;color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  img{display:block;max-width:100%;user-select:none;-webkit-user-drag:none}
+  h1,h2,h3{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif;font-weight:900;letter-spacing:.01em;color:var(--ink)}
+  p{line-height:1.85}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background-image:url("assets/images/uploads/img5_r0c1_paper_texture_bg.png");
+    background-size:600px 600px;
+    background-repeat:repeat;
+    background-color:#f6ecd5;
+    padding:46px 0 110px;
   }
-  .hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 16px; letter-spacing: -1px; }
-  .hero .tagline { font-size: 18px; opacity: 0.95; max-width: 600px; margin: 0 auto; }
-  main {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 48px 24px;
+  .hero::before{
+    /* warm overlay to unify the paper tile */
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(255,240,210,.55), transparent 60%),
+      radial-gradient(ellipse at 80% 70%, rgba(255,230,205,.4), transparent 60%);
+    pointer-events:none;
   }
-  section { margin-bottom: 48px; }
-  h2 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #4a90e2;
+  .hero-inner{
+    position:relative;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 56px;
+    display:grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap:30px;
+    align-items:start;
   }
-  .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    margin-top: 16px;
+  .hero-left{ position:relative; z-index:5; padding-top:0; padding-bottom:140px; }
+  .brand-row{
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:32px;
   }
-  .feature {
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  .brand-row img{height:38px;width:auto;margin-right:-2px;transform:translateY(5px)}
+  .brand-row .presents{
+    font-family:"Zen Maru Gothic",sans-serif;font-weight:500;
+    color:#2a2520;font-size:24px;letter-spacing:.02em;
   }
-  .feature h3 { font-size: 16px; color: #4a90e2; margin-bottom: 8px; }
-  .feature p { font-size: 14px; color: #555; }
-  .contact {
-    background: #fff;
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  h1.hero-title{
+    font-size:46px;
+    line-height:1.42;
+    letter-spacing:.02em;
+    color:#1f1a14;
+    margin-bottom:28px;
+    white-space:nowrap;
   }
-  .contact a {
-    color: #4a90e2;
-    text-decoration: none;
-    word-break: break-all;
+  h1.hero-title .small{ font-size:.92em; }
+  .hero-sub{
+    font-family:"Zen Maru Gothic",sans-serif;
+    font-weight:500;
+    color:#3a342c;
+    font-size:19px;
+    line-height:1.85;
+    margin-bottom:34px;
   }
-  .contact a:hover { text-decoration: underline; }
-  .links {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 24px;
+  .appstore{
+    display:inline-block;
+    transition:transform .15s ease;
   }
-  .links a {
-    color: #4a90e2;
-    text-decoration: none;
-    padding: 8px 16px;
-    border: 1px solid #4a90e2;
-    border-radius: 6px;
-    transition: background 0.2s;
+  .appstore:hover{transform:translateY(-2px)}
+  .appstore img{height:58px;width:auto}
+  .ios-android{
+    margin-top:18px;
+    color:var(--teal-deep);
+    font-family:"Zen Maru Gothic",sans-serif;
+    font-weight:500;
+    font-size:15px;
+    letter-spacing:.04em;
+    border-bottom:1px solid rgba(31,107,110,.35);
+    display:inline-block;
+    padding-bottom:2px;
+    white-space:nowrap;
   }
-  .links a:hover { background: #4a90e2; color: #fff; }
-  footer {
-    text-align: center;
-    padding: 24px;
-    color: #999;
-    font-size: 13px;
-    border-top: 1px solid #e1e4e8;
-    background: #fff;
+
+  /* hero right */
+  .hero-right{
+    position:relative;
+    display:flex;justify-content:center;align-items:flex-start;
+    z-index:4;
+  }
+  .phone-hero{
+    position:relative;z-index:4;
+    width:380px;
+    max-width:100%;
+    filter:drop-shadow(0 30px 40px rgba(60,40,20,.18));
+  }
+
+  /* hero decorations -- positioned relative to .hero (full section) */
+  .deco{position:absolute;pointer-events:none;z-index:1}
+
+  .deco-leaf-top      { top:30px;  left:52%;  width:140px; transform:rotate(-12deg); opacity:.95; z-index:2;}
+  .deco-leaf-right    { top:46%;   right:7%;  width:130px; transform:rotate(20deg);  opacity:.9;  z-index:2;}
+  .deco-leaf-bottom   { bottom:14%;right:13%; width:120px; transform:rotate(-22deg); opacity:.85; z-index:2;}
+  .deco-circle-teal   { top:40%;   left:52%;  width:170px; opacity:.65; z-index:1;}
+  .deco-blob-orange-1 { top:65%;   left:42%;  width:200px; opacity:.85; z-index:1;}
+  .deco-blob-orange-2 { top:14%;   right:-2%; width:260px; opacity:.7;  z-index:1;}
+  .deco-orange-dots   { top:50%;   left:36%;  width:130px; opacity:.95; z-index:3;}
+  .deco-teal-dots     { bottom:24%;right:2%;  width:130px; opacity:.85; z-index:3;}
+  .deco-sparkles      { top:42%;   right:3%;  width:110px; opacity:.95; z-index:3;}
+
+  /* notebook + coffee anchored to bottom-left of hero, beneath the text content */
+  .deco-coffee   { bottom:90px; left:330px; width:160px; z-index:5;}  /* 拡大 + 右にずらし */
+  .deco-notebook { bottom:0px;  left:30px;  width:280px; z-index:5;}  /* 拡大 */
+
+  .bubble{ position:absolute; z-index:6; }
+  .bubble.ganbare{ top:10%; right:5%;  width:170px; transform:rotate(6deg);}  /* 右上 */
+  .bubble.sugoi  { top:22%; left:44%;  width:165px; transform:rotate(-6deg);} /* 左中央へ移動、画像は stamp-naisu */
+  .bubble.fight  { top:58%; right:5%;  width:155px; transform:rotate(8deg);}  /* 右下、画像は stamp-otukaresama */
+
+  /* wave divider */
+  .wave-divider{
+    position:absolute;left:0;right:0;bottom:-1px;
+    width:100%;
+    height:80px;
+    z-index:10;
+    line-height:0;
+  }
+  .wave-divider svg{display:block;width:100%;height:100%}
+
+  /* ============ ABOUT ============ */
+  .about{
+    background:#fcfaf5;
+    padding:110px 24px 30px;
+    text-align:center;
+    position:relative;
+  }
+  .sprout-mini{
+    width:72px;height:auto;margin:0 auto 24px;display:block;opacity:.92;
+    transform:translateX(-14px);
+  }
+  .about h2{
+    font-size:36px;letter-spacing:.04em;margin-bottom:28px;color:#1f1a14;
+  }
+  .about p{
+    max-width:600px;margin:0 auto;color:#3a342c;font-size:15.5px;line-height:2.1;
+  }
+
+  /* ============ FEATURES ============ */
+  .features{
+    padding:80px 24px 90px;
+    background:#fcfaf5;
+  }
+  .features-grid{
+    max-width:980px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
+  }
+  .feature{
+    text-align:center;padding:0 8px;
+  }
+  .feature .icon{
+    width:110px;height:110px;margin:0 auto 22px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .feature .icon img{max-width:100%;max-height:100%;width:auto;height:auto}
+  .feature h3{
+    font-size:22px;letter-spacing:.06em;margin-bottom:20px;color:#1f1a14;
+  }
+  .feature p{
+    color:#4a423a;font-size:13.5px;line-height:2;
+  }
+
+  /* ============ PHONES ============ */
+  .phones{
+    background:#fcfaf5;
+    padding:80px 24px 100px;
+    position:relative;
+  }
+  .phones h2{
+    text-align:center;font-size:30px;letter-spacing:.06em;margin-bottom:60px;color:#1f1a14;
+  }
+  .phones-row{
+    max-width:980px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:40px;align-items:start;
+  }
+  .phone-card{ text-align:center; }
+  .phone-card .phone-wrap{
+    height:430px; display:flex; align-items:center; justify-content:center;
+    margin-bottom:22px;
+  }
+  .phone-card img.phone{
+    height:100%;width:auto;max-width:100%;display:block;
+    filter:drop-shadow(0 18px 24px rgba(60,40,20,.15));
+  }
+  .phone-card .caption{
+    font-family:"Zen Maru Gothic",sans-serif;
+    font-weight:700;color:#1f1a14;font-size:18px;letter-spacing:.06em;
+  }
+
+  /* ============ WARMTH ============ */
+  .warmth{
+    background:#fcfaf5;
+    padding:60px 24px 110px;
+    text-align:center;
+    position:relative;
+  }
+  .warmth h2{
+    font-size:28px;letter-spacing:.08em;margin-bottom:46px;color:#1f1a14;
+  }
+  .stamps-row{
+    display:flex;justify-content:center;align-items:center;gap:72px;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .stamp{
+    width:auto;height:130px;
+  }
+  .warmth p{
+    max-width:600px;margin:0 auto;color:#3a342c;font-size:15px;line-height:2.1;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer{
+    background:#fcfaf5;
+    padding:30px 24px 0;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .footer .download-block{
+    padding-bottom:36px;
+  }
+  .footer .appstore img{height:62px}
+  .footer .free-dl{
+    margin-top:18px;
+    font-family:"Zen Maru Gothic",sans-serif;
+    font-weight:700;color:#1f1a14;font-size:17px;letter-spacing:.06em;
+  }
+  .footer .free-dl-sub{
+    margin-top:6px;color:var(--teal-deep);font-size:13px;letter-spacing:.06em;
+    border-bottom:1px dashed rgba(31,107,110,.4);display:inline-block;padding-bottom:3px;
+  }
+  .footer-bottom{
+    border-top:1px solid #e9e1d0;
+    margin-top:36px;
+    padding:28px 24px 36px;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    column-gap:32px;
+    align-items:center;
+    max-width:1180px;
+    margin-left:auto;margin-right:auto;
+    position:relative;
+  }
+  .footer-brand{
+    display:flex;align-items:center;justify-content:flex-start;
+  }
+  .footer-brand img{height:30px;width:auto}
+  .footer-links{
+    display:flex;justify-content:center;align-items:center;
+    gap:18px;
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    font-size:13.5px;color:#3a342c;letter-spacing:.04em;
+  }
+  .footer-links a{
+    color:inherit;text-decoration:none;
+    font-family:"Zen Maru Gothic",sans-serif;font-weight:500;
+    white-space:nowrap;
+  }
+  .footer-links a:hover{color:var(--teal-deep)}
+  .footer-copy{
+    font-size:12px;color:#7a7268;letter-spacing:.04em;
+    text-align:right;
+    position:relative;z-index:2;
+    padding-right:90px;
+    white-space:nowrap;
+  }
+  .footer-blob{
+    position:absolute;right:-30px;bottom:-40px;
+    width:240px;height:auto;z-index:0;pointer-events:none;opacity:.7;
+  }
+
+  /* small screens fallback */
+  @media (max-width: 900px){
+    .hero-inner{grid-template-columns:1fr;padding:0 28px;min-height:auto}
+    .hero-right{min-height:520px}
+    .hero{padding:36px 0 100px}
+    h1.hero-title{font-size:38px}
+    .features-grid,.phones-row{grid-template-columns:1fr;gap:48px}
+    .footer-bottom{grid-template-columns:1fr;gap:18px;text-align:center}
+    .footer-brand,.footer-copy{justify-content:center;text-align:center}
   }
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <h1>Weavelog</h1>
-  <p class="tagline">「続けたい」をみんなで応援する日記型ソーシャルアプリ</p>
-</div>
-
-<main>
-
-  <section>
-    <h2>Weavelog について</h2>
-    <p>
-      Weavelog は、毎日のがんばりを記録しながら仲間から応援をもらえる、新感覚の継続サポートアプリです。
-      一人では続かないことも、仲間と一緒なら続けられる ー そんな思いから生まれた、日記とソーシャルが融合したサービスです。
-    </p>
-  </section>
-
-  <section>
-    <h2>主な機能</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>📝 日記投稿</h3>
-        <p>テキスト・画像・ハッシュタグでサッと記録。お気に入りのテンプレートで投稿もラクラク。</p>
+<!-- ===================== HERO ===================== -->
+<section class="hero" data-screen-label="01 Hero">
+  <!-- background-layer decorations (will sit behind phone) -->
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="brand-row">
+        <img src="assets/images/uploads/cropped_codemica_logo.png" alt="Codemica" data-comment-anchor="fa87f9f242-img" />
+        <span class="presents">presents</span>
       </div>
-      <div class="feature">
-        <h3>🔥 継続バッジ</h3>
-        <p>連続投稿日数（ストリーク）や達成バッジで、自分の頑張りを可視化。</p>
-      </div>
-      <div class="feature">
-        <h3>👥 フォロー機能</h3>
-        <p>気になるユーザーをフォローして、お互いに応援し合える環境を。</p>
-      </div>
-      <div class="feature">
-        <h3>💪 応援リアクション</h3>
-        <p>「がんばれ！」のリアクションで、仲間の継続を後押し。</p>
+
+      <h1 class="hero-title">
+        『続けたい』を<br />
+        みんなで応援する<br />
+        日記 SNS
+      </h1>
+
+      <p class="hero-sub">
+        一人では続かないことも、<br />
+        仲間と一緒なら続けられる
+      </p>
+
+      <a class="appstore" href="#" aria-label="Download on the App Store">
+        <img src="assets/images/uploads/img2_r1c1_appstore_badge.png" alt="Download on the App Store" />
+      </a>
+
+      <div>
+        <span class="ios-android">iOS 対応</span>
       </div>
     </div>
-  </section>
 
-  <section>
-    <h2>お問い合わせ</h2>
-    <div class="contact">
-      <p>
-        ご質問・ご要望・不具合報告は、以下のメールアドレスまでお寄せください。<br>
-        通常、数営業日以内にお返事いたします。
-      </p>
-      <p style="margin-top: 16px;">
-        <strong>📧 サポートメール:</strong>
-        <a href="mailto:codemica.app@gmail.com">codemica.app@gmail.com</a>
-      </p>
-      <p style="margin-top: 12px; font-size: 14px; color: #666;">
-        アプリ内の「設定」→「サポート」→「お問い合わせ」からもご連絡いただけます。
-      </p>
+    <!-- RIGHT -->
+    <div class="hero-right">
+      <img class="phone-hero" src="assets/images/uploads/composite_phone_post_white.png" alt="Weavelogホーム画面" data-comment-anchor="84a07f9bab-img" />
     </div>
-  </section>
+  </div>
 
-  <section>
-    <h2>関連リンク</h2>
-    <div class="links">
-      <a href="./terms_of_service.html">利用規約</a>
-      <a href="./PrivacyPolicy.html">プライバシーポリシー</a>
+  <!-- decorations positioned within the hero section as a whole -->
+  <img class="deco deco-leaf-top"      src="assets/images/uploads/img2_r0c1_leaf_branch_1.png"           alt="" />
+  <img class="deco deco-circle-teal"   src="assets/images/uploads/img2_r1c2_watercolor_circle_teal.png"  alt="" />
+  <img class="deco deco-blob-orange-1" src="assets/images/uploads/img2_r3c1_watercolor_blob_orange.png"  alt="" />
+  <img class="deco deco-blob-orange-2" src="assets/images/uploads/img6_r1c1_orange_blob_large.png"       alt="" />
+  <img class="deco deco-orange-dots"   src="assets/images/uploads/img6_r0c3_orange_dots_scatter.png"     alt="" />
+  <img class="deco deco-teal-dots"     src="assets/images/uploads/img6_r0c2_teal_dots_scatter.png"       alt="" />
+  <img class="deco deco-sparkles"      src="assets/images/uploads/img2_r3c3_sparkles_icon.png"           alt="" />
+  <img class="deco deco-leaf-right"    src="assets/images/uploads/img6_r1c3_leaf_buds_branch.png"        alt="" />
+  <img class="deco deco-leaf-bottom"   src="assets/images/uploads/img6_r0c1_leaf_branch_green.png"       alt="" />
+  <img class="deco deco-coffee"        src="assets/images/uploads/img2_r1c3_coffee_cup.png"              alt="" />
+  <img class="deco deco-notebook"      src="assets/images/uploads/img2_r2c0_notebook_with_pen.png"       alt="" />
+
+  <!-- speech bubbles (Weavelog の実応援スタンプ: おつかれさま / がんばれ / ナイス) -->
+  <img class="bubble ganbare" src="assets/images/stamp-ganbare.png" alt="がんばれスタンプ" />
+  <img class="bubble sugoi"   src="assets/images/stamp-naisu.png"   alt="ナイススタンプ" />
+  <img class="bubble fight"   src="assets/images/stamp-otukaresama.png" alt="おつかれさまスタンプ" />
+
+  <!-- wave divider -->
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#fcfaf5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about" data-screen-label="02 About">
+  <img class="sprout-mini" src="assets/images/uploads/img2_r2c1_sprout_icon.png" alt="" data-comment-anchor="933ac81172-img" />
+  <h2>Weavelog とは？</h2>
+  <p>
+    Weavelog は、日々の記録を気軽に続けられる日記 SNS です。<br />
+    投稿・応援・ストリークを通して、ひとりでは続かない習慣を自然に支えます。<br />
+    勉強、筋トレ、創作、日常の記録まで、自分のペースで続けられます。
+  </p>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="features" data-screen-label="03 Features">
+  <div class="features-grid">
+    <div class="feature">
+      <div class="icon"><img src="assets/images/uploads/img2_r2c2_diary_book_icon.png" alt="" /></div>
+      <h3>日記投稿</h3>
+      <p>今日の出来事や続けたいことを、<br />気軽に記録。<br />短くても大丈夫、習慣化を<br />後押しします。</p>
     </div>
-  </section>
+    <div class="feature">
+      <div class="icon"><img src="assets/images/uploads/img2_r2c3_fire_streak_icon.png" alt="" /></div>
+      <h3>ストリーク</h3>
+      <p>続けた日数がひと目でわかるから、<br />毎日のモチベーションにつながります。</p>
+    </div>
+    <div class="feature">
+      <div class="icon"><img src="assets/images/uploads/img2_r3c0_smile_speech_icon.png" alt="" /></div>
+      <h3>応援スタンプ</h3>
+      <p>仲間からのリアクションが励みになる、<br />Weavelog ならではのやさしい交流。</p>
+    </div>
+  </div>
+</section>
 
-</main>
+<!-- ===================== PHONES ===================== -->
+<section class="phones" data-screen-label="04 Screens">
+  <h2>シンプルで使いやすい、毎日の習慣に</h2>
+  <div class="phones-row">
+    <div class="phone-card">
+      <div class="phone-wrap"><img class="phone" src="assets/images/uploads/tight_phone_post_white.png" alt="ホーム画面" data-comment-anchor="6b685a21e2-img" /></div>
+      <div class="caption">投稿しやすいホーム</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-wrap"><img class="phone" src="assets/images/uploads/tight_phone_streak.png" alt="ストリーク画面" /></div>
+      <div class="caption">続けた日数が見える</div>
+    </div>
+    <div class="phone-card">
+      <div class="phone-wrap"><img class="phone" src="assets/images/uploads/tight_phone_community.png" alt="コミュニティ画面" /></div>
+      <div class="caption">応援が届くコミュニティ</div>
+    </div>
+  </div>
+</section>
 
-<footer>
-  &copy; 2026 Codemica. All rights reserved.
+<!-- ===================== WARMTH ===================== -->
+<section class="warmth" data-screen-label="05 Warmth">
+  <h2>他にはない、温かい応援文化</h2>
+  <div class="stamps-row">
+    <img class="stamp" src="assets/images/stamp-otukaresama.png" alt="おつかれさま" />
+    <img class="stamp" src="assets/images/stamp-ganbare.png" alt="がんばれ" />
+    <img class="stamp" src="assets/images/stamp-naisu.png" alt="ナイス" />
+  </div>
+  <p>
+    ただ記録するだけではなく、応援し合えるのが Weavelog の魅力。<br />
+    小さなリアクションが、次の一歩をそっと支えてくれます。
+  </p>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" data-screen-label="06 Footer">
+  <div class="download-block">
+    <a class="appstore" href="#" aria-label="Download on the App Store">
+      <img src="assets/images/uploads/img2_r1c1_appstore_badge.png" alt="Download on the App Store" />
+    </a>
+    <div class="free-dl">無料でダウンロード</div>
+    <div><span class="free-dl-sub" data-comment-anchor="061c0dd7e6-span">iOS diary social app</span></div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-brand">
+      <img src="assets/images/uploads/cropped_codemica_logo.png" alt="Codemica" />
+    </div>
+    <div class="footer-links">
+      <a href="https://codemica.net" target="_blank" rel="noopener">Codemica</a>
+      <span style="color:#d8cfba">|</span>
+      <a href="/PrivacyPolicy.html">プライバシーポリシー</a>
+      <span style="color:#d8cfba">|</span>
+      <a href="/terms_of_service.html">利用規約</a>
+      <span style="color:#d8cfba">|</span>
+      <a href="mailto:codemica.app@gmail.com">お問い合わせ</a>
+    </div>
+    <div class="footer-copy">© 2026 Codemica</div>
+
+    <img class="footer-blob" src="assets/images/uploads/cropped_img4_r3c3_footer_orange_blob.png" alt="" />
+  </div>
 </footer>
 
 </body>
