@@ -321,8 +321,14 @@
   }
   .footer-brand{
     display:flex;align-items:center;justify-content:flex-start;
+    gap:8px;
   }
   .footer-brand img{height:30px;width:auto}
+  .footer-brand .footer-codemica-icon{height:30px;width:30px;}
+  .footer-brand .footer-codemica-name{
+    font-family:"Zen Maru Gothic",sans-serif;font-weight:700;
+    color:var(--teal-deep);font-size:18px;letter-spacing:.02em;
+  }
   .footer-links{
     display:flex;justify-content:center;align-items:center;
     gap:18px;
@@ -377,8 +383,8 @@
     <!-- LEFT -->
     <div class="hero-left">
       <div class="brand-row">
-        <img src="assets/images/uploads/cropped_codemica_logo.png" alt="Codemica" data-comment-anchor="fa87f9f242-img" />
-        <span class="presents">presents</span>
+        <img src="assets/images/codemica-icon.png" alt="Codemica" />
+        <span class="presents">Codemica presents</span>
       </div>
 
       <h1 class="hero-title">
@@ -520,7 +526,8 @@
 
   <div class="footer-bottom">
     <div class="footer-brand">
-      <img src="assets/images/uploads/cropped_codemica_logo.png" alt="Codemica" />
+      <img src="assets/images/codemica-icon.png" alt="" class="footer-codemica-icon" />
+      <span class="footer-codemica-name">Codemica</span>
     </div>
     <div class="footer-links">
       <a href="https://codemica.net" target="_blank" rel="noopener">Codemica</a>
